@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,5 +46,38 @@ public class Product_lists extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         productAdapter.stopListening();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.searchproduct,menu);
+        MenuItem item = menu.findItem(R.id.searchproduct);
+
+        SearchView searchView = (SearchView)item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public  boolean onQueryTextSubmit(String query){
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query){
+                txtSearch(query);
+return false;
+
+            }
+        });
+         return super.onCreateOptionsMenu(menu);
+}
+    private void txtSearch(String str){
+        FirebaseRecyclerOptions<Products> options=
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("name").startAt(str+"~").endAt(str),Products.class)
+                        .build();
+        productAdapter = new ProductAdapter(options);
+        productAdapter.startListening();
+        recyclerView.setAdapter(productAdapter);
+
     }
 }
