@@ -33,29 +33,29 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
         holder.brand.setText(model.getBrand());
         holder.category.setText(model.getCategory());
 
-        Glide.with(holder.img.getContext())
+        Glide.with(holder.image.getContext())
                 .load(model.getImage())
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
-                .into(holder.img);
+                .into(holder.image);
     }
 
     @NonNull
 
     @Override
     public myViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_product_lists,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productlist,parent,false);
         return new myViewHolder(view);
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
-        CircleImageView img;
+        CircleImageView image;
         TextView name,price,brand,category;
 
-        public myViewHolder( View itemView) {
+        public myViewHolder(View itemView) {
             super(itemView);
-        img=(CircleImageView)itemView.findViewById(R.id.img1);
+        image=(CircleImageView)itemView.findViewById(R.id.img1);
         name = (TextView)itemView.findViewById(R.id.product_name);
         price=(TextView)itemView.findViewById(R.id.product_price);
         brand=(TextView)itemView.findViewById(R.id.product_brand);

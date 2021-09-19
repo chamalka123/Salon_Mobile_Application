@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         final Button button = (Button)findViewById(R.id.home_products);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Product_lists.class);
+                Intent intent = new Intent(getApplicationContext(),Product_lists.class);
                 startActivity(intent);
             }
         });
