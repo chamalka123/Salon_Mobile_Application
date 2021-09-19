@@ -45,7 +45,7 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
 
     @Override
     public myViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_lists,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_product_lists,parent,false);
         return new myViewHolder(view);
     }
 
