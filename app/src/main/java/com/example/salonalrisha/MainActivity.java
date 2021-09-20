@@ -21,5 +21,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        final Button button1 = (Button)findViewById(R.id.home_services);
+        button1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Services_lists.class);
+                startActivity(intent);
+            }
+        });
     }
 }

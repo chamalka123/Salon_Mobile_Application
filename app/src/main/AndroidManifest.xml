@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SalonAlrisha">
-        <activity android:name=".AddProduct"></activity>
+        <activity android:name=".AddService"></activity>
+        <activity android:name=".Services_lists" />
+        <activity android:name=".AddProduct" />
         <activity android:name=".Product_lists" />
         <activity android:name=".MainActivity">
             <intent-filter>
