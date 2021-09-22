@@ -10,8 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D6B8DC"
-        android:backgroundTint="#ECBBF4"
+        android:background="@drawable/gradient1"
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView

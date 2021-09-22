@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8960D3"
-    android:backgroundTint="#D6CCEA"
+    android:background="@drawable/gradient"
     android:orientation="vertical">
 
     <TextView
@@ -51,7 +50,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,7 @@ public class ServiceAdapter extends FirebaseRecyclerAdapter<Services,ServiceAdap
         holder.name.setText(model.getName());
         holder.price.setText(model.getPrice());
         holder.duration.setText(model.getDuration());
-        holder.category.setText(model.getCategory());
+       // holder.category.setText(model.getCategory());
 
         Glide.with(holder.image.getContext())
                 .load(model.getImage())
@@ -63,17 +64,17 @@ public class ServiceAdapter extends FirebaseRecyclerAdapter<Services,ServiceAdap
         }
 
         class myViewHolder extends RecyclerView.ViewHolder {
-            CircleImageView image;
-            TextView name, price, duration, category;
+            ImageView image;
+            TextView name, price, duration ;
 
 
             public myViewHolder(View itemView) {
                 super(itemView);
-                image = (CircleImageView) itemView.findViewById(R.id.img2);
+                image = (ImageView) itemView.findViewById(R.id.img2);
                 name = (TextView) itemView.findViewById(R.id.service_name);
                 price = (TextView) itemView.findViewById(R.id.service_price);
                 duration = (TextView) itemView.findViewById(R.id.service_duration);
-                category = (TextView) itemView.findViewById(R.id.service_category);
+                //category = (TextView) itemView.findViewById(R.id.service_category);
             }
         }
 }

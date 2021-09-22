@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8960D3"
-    android:backgroundTint="#D6CCEA"
-    android:orientation="vertical">
+    android:background="@drawable/gradient"
+    android:orientation="vertical"
+    >
+
 
     <TextView
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Product Name"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/product_name"
@@ -40,7 +42,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Product Price"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/product_price"
@@ -49,7 +52,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="match_parent"
@@ -58,7 +62,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Product Brand"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/product_brand"
@@ -76,7 +81,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Product Category"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/product_category"
@@ -94,7 +100,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Product Image"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/image"

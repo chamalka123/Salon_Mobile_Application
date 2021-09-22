@@ -1,6 +1,7 @@
 package com.example.salonalrisha;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +28,8 @@ public class Services_lists extends AppCompatActivity {
         setContentView(R.layout.activity_services_lists);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
 
         FirebaseRecyclerOptions<Services> options =
