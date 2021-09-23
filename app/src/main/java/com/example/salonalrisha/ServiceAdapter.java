@@ -43,14 +43,14 @@ public class ServiceAdapter extends FirebaseRecyclerAdapter<Services,ServiceAdap
     @Override
     protected void onBindViewHolder(@NonNull ServiceAdapter.myViewHolder holder, final int position, @NonNull  Services model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
-        holder.duration.setText(model.getDuration());
+        holder.price.setText(model.getPrice()+ " LKR");
+        holder.duration.setText(model.getDuration()+ " mins");
        // holder.category.setText(model.getCategory());
 
         Glide.with(holder.image.getContext())
                 .load(model.getImage())
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
-                .circleCrop()
+                //.circleCrop()
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.image);
 

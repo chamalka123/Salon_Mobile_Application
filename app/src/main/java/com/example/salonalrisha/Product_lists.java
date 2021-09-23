@@ -84,7 +84,7 @@ return false;
     private void txtSearch(String str){
         FirebaseRecyclerOptions<Products> options=
                 new FirebaseRecyclerOptions.Builder<Products>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("name").startAt(str+"~").endAt(str),Products.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("name").startAt(str).endAt(str+"~"),Products.class)
                         .build();
         productAdapter = new ProductAdapter(options);
         productAdapter.startListening();

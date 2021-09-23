@@ -18,8 +18,9 @@ import java.util.Map;
 
 public class AddService extends AppCompatActivity {
 
-    EditText name, price, duration, category, image;
+    EditText name, price, duration,  image;
     Button btnAdd, btnBack;
+    boolean isAllFieldsChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class AddService extends AppCompatActivity {
         name = (EditText) findViewById(R.id.service_name);
         price = (EditText) findViewById(R.id.service_price);
         duration = (EditText) findViewById(R.id.service_duration);
-        category = (EditText) findViewById(R.id.service_category);
+        //category = (EditText) findViewById(R.id.service_category);
         image = (EditText) findViewById(R.id.image);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
@@ -38,8 +39,11 @@ public class AddService extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertData();
-                clearAll();
+                isAllFieldsChecked = CheckAllFields();
+                if (isAllFieldsChecked) {
+                    insertData();
+                    clearAll();
+                }
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +60,7 @@ public class AddService extends AppCompatActivity {
         map.put("name", name.getText().toString());
         map.put("price", price.getText().toString());
         map.put("duration", duration.getText().toString());
-        map.put("category", category.getText().toString());
+        //map.put("category", category.getText().toString());
         map.put("image", image.getText().toString());
 
         FirebaseDatabase.getInstance().getReference().child("Services").push()
@@ -81,7 +85,33 @@ public class AddService extends AppCompatActivity {
         name.setText("");
         price.setText("");
         duration.setText("");
-        category.setText("");
+        //category.setText("");
         image.setText("");
     }
+    private boolean CheckAllFields() {
+        if (name.length() == 0) {
+            name.setError("This field is required");
+            return false;
+        }
+        if (price.length() == 0) {
+            price.setError("This field is required");
+            return false;
+        }
+        if (duration.length() == 0) {
+            duration.setError("This field is required");
+            return false;
+        }
+      /*  if (category.length() == 0) {
+            category.setError("This field is required");
+            return false;
+        }*/
+        if (image.length() == 0) {
+            image.setError("This field is required");
+            return false;
+        }
+
+        // after all validation return true.
+        return true;
+    }
+
 }
