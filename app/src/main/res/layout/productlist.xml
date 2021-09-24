@@ -42,7 +42,15 @@
             android:text="Product Price"
             android:textColor="@color/black"
             android:textSize="25sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/product_price"
+            android:text="_5"
+            android:textStyle="bold"
+            android:id="@+id/total_price"
+            android:textSize="23sp"
+            />
         <TextView
             android:id="@+id/product_brand"
             android:layout_width="match_parent"
@@ -81,15 +89,25 @@
                 android:textAllCaps="false"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnView"
-                android:layout_width="120dp"
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="4dp"
-                android:backgroundTint="#1B1919"
-                android:text="VIEW"
-                android:textAllCaps="false"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/substract_icon" />
+           <TextView
+               android:id="@+id/product_qty"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="5"
+               android:textSize="22sp"
+               />
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/plus_icon" />
 
             <Button
                 android:id="@+id/btnDelete"
@@ -100,6 +118,8 @@
                 android:text="DELETE"
                 android:textAllCaps="false"
                 android:textStyle="bold" />
+
+
         </LinearLayout>
 
     </RelativeLayout>

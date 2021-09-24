@@ -1,15 +1,35 @@
 package com.example.salonalrisha;
 
 public class Products {
-    String name, price, brand, category ,image;
+    String name, brand, category ,image;
+   int qty;
+   int total;
+   String price;
 
     Products(){}
-    public Products(String name, String price, String brand, String category, String image) {
+
+    public Products(String name, String price, String brand, String category, String image ) {
         this.name = name;
         this.price = price;
         this.brand = brand;
         this.category = category;
         this.image = image;
+
+    }
+
+    public Products(int qty, int total) {
+        this.qty = qty;
+        this.total=total;
+
+    }
+
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public String getName() {
@@ -22,6 +42,14 @@ public class Products {
 
     public String getPrice() {
         return price;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
     }
 
     public void setPrice(String price) {

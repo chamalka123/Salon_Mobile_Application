@@ -59,4 +59,36 @@ public class Services_lists extends AppCompatActivity {
         super.onStop();
         serviceAdapter.stopListening();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.searchproduct,menu);
+        MenuItem item = menu.findItem(R.id.searchproduct);
+
+        SearchView searchView = (SearchView)item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public  boolean onQueryTextSubmit(String query){
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query){
+                txtSearch(query);
+                return false;
+
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+    private void txtSearch(String str){
+        FirebaseRecyclerOptions<Services> options=
+                new FirebaseRecyclerOptions.Builder<Services>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("name").startAt(str).endAt(str+"~"),Services.class)
+                        .build();
+        serviceAdapter = new ServiceAdapter(options);
+        serviceAdapter.startListening();
+        recyclerView.setAdapter(serviceAdapter);
+
+    }
 }

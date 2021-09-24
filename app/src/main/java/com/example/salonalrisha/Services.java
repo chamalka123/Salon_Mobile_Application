@@ -1,15 +1,14 @@
 package com.example.salonalrisha;
 
 public class Services {
-    String name, price, duration, category ,image;
+    String name, price, duration ,image;
 
     Services(){}
 
-    public Services(String name, String price, String duration, String category, String image) {
+    public Services(String name, String price, String duration, String image) {
         this.name = name;
         this.price = price;
         this.duration = duration;
-        this.category = category;
         this.image = image;
     }
 
@@ -37,13 +36,6 @@ public class Services {
         this.duration = duration;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public String getImage() {
         return image;

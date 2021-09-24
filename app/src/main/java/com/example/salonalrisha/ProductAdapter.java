@@ -1,13 +1,15 @@
 package com.example.salonalrisha;
 
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,10 +43,34 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
 
     @Override
     protected void onBindViewHolder(@NonNull ProductAdapter.myViewHolder holder, final int position, @NonNull  Products model) {
+
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(model.getPrice() + " LKR");
         holder.brand.setText(model.getBrand());
         holder.category.setText(model.getCategory());
+        holder.qty.setText("" + model.getQty());
+       //int total= ((Integer.valueOf(model.getPrice())))*Integer.valueOf(model.getQty());
+       //holder.total.setText(model.getTotal());
+
+       //if plus button is pressed
+        holder.imageView9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                model.setQty(model.getQty() + 1);
+                notifyDataSetChanged();
+            }
+        });
+        //if substract button is pressed
+       holder.imageView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if(model.getQty() > 1){
+                    //if greater than to 1
+                    model.setQty(model.getQty() - 1);
+                    notifyDataSetChanged();
+               }
+            }
+        });
 
         Glide.with(holder.image.getContext())
                 .load(model.getImage())
@@ -110,6 +136,7 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
             }
         });
 
+
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,8 +170,12 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
+        ImageView imageView9;
+        ImageView imageView8;
         CircleImageView image;
         TextView name,price,brand,category;
+        TextView  qty, total;
+
 
         Button btnEdit,btnDelete;
 
@@ -155,9 +186,12 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
         price=(TextView)itemView.findViewById(R.id.product_price);
         brand=(TextView)itemView.findViewById(R.id.product_brand);
         category=(TextView)itemView.findViewById(R.id.product_category);
-
+        qty=(TextView)itemView.findViewById(R.id.product_qty);
+        total=(TextView)itemView.findViewById(R.id.total_price);
         btnEdit=(Button)itemView.findViewById(R.id.btnEdit);
         btnDelete=(Button)itemView.findViewById(R.id.btnDelete);
+        imageView8=(ImageView)itemView.findViewById(R.id.imageView8);
+        imageView9=(ImageView)itemView.findViewById(R.id.imageView9);
         }
     }
 
