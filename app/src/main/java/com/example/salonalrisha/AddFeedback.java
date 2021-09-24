@@ -1,5 +1,6 @@
 package com.example.salonalrisha;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,8 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddFeedback extends AppCompatActivity {
 
@@ -66,5 +70,26 @@ public class AddFeedback extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Number Format Exception",Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    public void ShowFeedback(View view) {
+        DatabaseReference readDB = FirebaseDatabase.getInstance().getReference().child("Feedbacks").child("-MkHK2m3JhDo3sp1wlLA");
+        readDB.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChildren()){
+                    txtName.setText(snapshot.child("name").getValue().toString());
+                    txtEmail.setText(snapshot.child("email").getValue().toString());
+                    txtReview.setText(snapshot.child("comment").getValue().toString());
+                }else{
+                    Toast.makeText(getApplicationContext(), "No values to display", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

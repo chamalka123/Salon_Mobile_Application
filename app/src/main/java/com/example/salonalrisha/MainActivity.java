@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         final Button feedback = (Button)findViewById(R.id.home_ratings);
         feedback.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),AddFeedback.class);
+                Intent intent = new Intent(getApplicationContext(),Feedbacks.class);
                 startActivity(intent);
             }
         });
