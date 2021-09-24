@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "129534217588",
+    "firebase_url": "https://salon-alrisha-default-rtdb.firebaseio.com",
+    "project_id": "salon-alrisha",
+    "storage_bucket": "salon-alrisha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129534217588:android:6ca2f780549a69760f3021",
+        "android_client_info": {
+          "package_name": "com.example.salonalrisha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129534217588-cvhging1f13sq1cdlbtp633q5k69opf4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQStjlSZJTsp7K_Ufby8HSYLxnThwAPTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129534217588-cvhging1f13sq1cdlbtp633q5k69opf4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
