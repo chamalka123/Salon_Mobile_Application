@@ -28,5 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        final Button feedback = (Button)findViewById(R.id.home_ratings);
+        feedback.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AddFeedback.class);
+                startActivity(intent);
+            }
+        });
     }
 }
