@@ -43,7 +43,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
             holder.email.setText(feedback.getEmail());
             holder.review.setText(feedback.getComment());
             Glide.with(context)
-                    .asBitmap().load(feedback.getImage())
+                    .asBitmap().load(feedback.getUrl())
                     .into(holder.image);
         }
 

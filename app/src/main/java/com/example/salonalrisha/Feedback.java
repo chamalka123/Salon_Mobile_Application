@@ -4,19 +4,19 @@ public class Feedback {
     private String name;
     private String comment;
     private String email;
-    private String image;
+    private String url;
 
 
     public Feedback(){}
-    public Feedback(String name, String comment, String email, String image) {
+    public Feedback(String name, String comment, String email, String url) {
         this.name = name;
         this.comment = comment;
         this.email = email;
-        this.image = image;
+        this.url = url;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public void setName(String name) {
@@ -48,8 +48,8 @@ public class Feedback {
         return email;
     }
 
-    public String getImage() {
-        return image;
+    public String getUrl() {
+        return url;
     }
 
 }
