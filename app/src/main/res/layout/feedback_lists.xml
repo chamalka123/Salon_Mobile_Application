@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent_layout"
     android:padding="10dp">
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/image_feedback"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/ic_launcher_round"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"/>
 
     <TextView
         android:id="@+id/image_name"
@@ -41,5 +45,34 @@
         android:text="Review"
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feedback_review"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:backgroundTint="#0B8003"
+        android:text="EDIT"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:backgroundTint="#F43C3C"
+            android:text="DELETE"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
