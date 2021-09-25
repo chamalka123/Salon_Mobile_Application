@@ -42,4 +42,32 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feedback_review"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEditFeedback"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:backgroundTint="#0B8003"
+            android:text="EDIT"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDeleteFeedback"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:backgroundTint="#F43C3C"
+            android:text="DELETE"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 </RelativeLayout>

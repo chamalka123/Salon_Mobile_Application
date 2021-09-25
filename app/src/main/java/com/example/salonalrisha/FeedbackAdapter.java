@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.DialogPlusBuilder;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.ArrayList;
 
@@ -45,6 +49,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
             Glide.with(context)
                     .asBitmap().load(feedback.getUrl())
                     .into(holder.image);
+
+
+            holder.btnEditFeedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final DialogPlus dialogPlus = DialogPlus.newDialog(holder.image.getContext())
+                            .setContentHolder(new ViewHolder(R.layout.update_feedback))
+                            .setExpanded(true, 1200)
+                            .create();
+
+                    dialogPlus.show();
+                }
+            });
         }
 
         @Override
@@ -56,6 +73,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
             CircleImageView image;
             TextView name, email, review;
             RelativeLayout parentLayout;
+            Button btnEditFeedback;
 
             public feedbackViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -63,6 +81,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
                 email = itemView.findViewById(R.id.feedback_email);
                 review = itemView.findViewById(R.id.feedback_review);
                 image = itemView.findViewById(R.id.image_feedback);
+                btnEditFeedback = itemView.findViewById(R.id.btnEditFeedback);
                 parentLayout = itemView.findViewById(R.id.parent_layout);
             }
         }
