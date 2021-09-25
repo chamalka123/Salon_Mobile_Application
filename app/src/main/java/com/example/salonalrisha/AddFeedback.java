@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +21,7 @@ public class AddFeedback extends AppCompatActivity {
 
     EditText txtName, txtEmail, txtReview;
     Button btnPost;
-
+    //RatingBar ratingBar;
     Feedback obFeedback;
     DatabaseReference db;
 
@@ -29,6 +30,7 @@ public class AddFeedback extends AppCompatActivity {
         txtName.setText("");
         txtEmail.setText("");
         txtReview.setText("");
+        //ratingBar.setNumStars(0);
     }
 
     @Override
@@ -40,6 +42,7 @@ public class AddFeedback extends AppCompatActivity {
         txtName = findViewById(R.id.Review_Person_name);
         txtEmail = findViewById(R.id.email);
         txtReview = findViewById(R.id.review_message);
+        //ratingBar = findViewById(R.id.ratingBar);
 
         btnPost = findViewById(R.id.btnPost);
 
@@ -55,12 +58,12 @@ public class AddFeedback extends AppCompatActivity {
             }else if(TextUtils.isEmpty(txtEmail.getText().toString().trim())){
                 Toast.makeText(getApplicationContext(),"Please Enter Your Email", Toast.LENGTH_LONG).show();
             }else if(TextUtils.isEmpty(txtReview.getText().toString().trim())){
-                Toast.makeText(getApplicationContext(),"Please Give your Review", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Please Give your Review", Toast.LENGTH_LONG).show();
             }else{
                 obFeedback.setName(txtName.getText().toString().trim());
                 obFeedback.setEmail(txtEmail.getText().toString().trim());
                 obFeedback.setComment(txtReview.getText().toString().trim());
-
+                //obFeedback.hashCode(ratingBar.getNumStars());
                 db.push().setValue(obFeedback);
 
                 Toast.makeText(getApplicationContext(), "Your Review Successfully Recorded", Toast.LENGTH_LONG).show();

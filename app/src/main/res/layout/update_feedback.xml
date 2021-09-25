@@ -20,7 +20,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Your Name"
+        android:text="Name"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Your Email"
+        android:text="Email"
         android:textSize="20sp"
         android:textStyle="bold" />
 

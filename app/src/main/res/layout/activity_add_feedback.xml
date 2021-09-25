@@ -71,6 +71,18 @@
         android:background="@drawable/rounded"
         android:gravity="center" />
 
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="35dp"
+        android:numStars="5"
+        android:progressBackgroundTint="#FF9800"
+        />
+
     <Button
         android:id="@+id/btnPost"
         android:layout_width="match_parent"
@@ -102,7 +114,5 @@
         android:textColor="#050005"
         android:textSize="21dp"
         android:textStyle="bold" />
-
-
 
 </LinearLayout>
