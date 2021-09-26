@@ -107,7 +107,6 @@ public class AddProduct extends AppCompatActivity {
             image.setError("This field is required");
             return false;
         }
-
         // after all validation return true.
         return true;
     }

@@ -31,12 +31,9 @@ public class Services_lists extends AppCompatActivity {
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-
-        FirebaseRecyclerOptions<Services> options =
-                new FirebaseRecyclerOptions.Builder<Services>()
+        FirebaseRecyclerOptions<Services> options = new FirebaseRecyclerOptions.Builder<Services>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Services"), Services.class)
                         .build();
-
         serviceAdapter = new ServiceAdapter(options);
         recyclerView.setAdapter(serviceAdapter);
 
@@ -53,7 +50,6 @@ public class Services_lists extends AppCompatActivity {
         super.onStart();
         serviceAdapter.startListening();
     }
-
     @Override
     protected void onStop() {
         super.onStop();

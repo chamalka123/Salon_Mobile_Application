@@ -77,10 +77,7 @@ public class AddService extends AppCompatActivity {
                         Toast.makeText(AddService.this, "Error Occured", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
     }
-
     private void clearAll() {
         name.setText("");
         price.setText("");
@@ -101,17 +98,11 @@ public class AddService extends AppCompatActivity {
             duration.setError("This field is required");
             return false;
         }
-      /*  if (category.length() == 0) {
-            category.setError("This field is required");
-            return false;
-        }*/
         if (image.length() == 0) {
             image.setError("This field is required");
             return false;
         }
-
         // after all validation return true.
         return true;
     }
-
 }

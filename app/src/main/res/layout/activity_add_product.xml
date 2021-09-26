@@ -13,7 +13,7 @@
         android:gravity="center"
 
         android:text="Add New Product"
-        android:textColor="#070505"
+        android:textColor="#160140"
         android:textSize="25dp" />
 
     <TextView
@@ -33,7 +33,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#010002"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -53,7 +54,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="#010002"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -72,7 +74,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#010002"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -91,7 +94,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#010002"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -110,7 +114,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#010002"/>
 
     <Button
         android:id="@+id/btnAdd"

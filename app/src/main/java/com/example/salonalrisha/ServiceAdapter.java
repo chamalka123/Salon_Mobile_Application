@@ -53,20 +53,16 @@ public class ServiceAdapter extends FirebaseRecyclerAdapter<Services,ServiceAdap
                 //.circleCrop()
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.image);
-
     }
         @NonNull
-
         @Override
         public ServiceAdapter.myViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.servicelist,parent,false);
             return new ServiceAdapter.myViewHolder(view);
         }
-
         class myViewHolder extends RecyclerView.ViewHolder {
             ImageView image;
             TextView name, price, duration ;
-
 
             public myViewHolder(View itemView) {
                 super(itemView);

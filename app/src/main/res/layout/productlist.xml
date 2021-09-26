@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/product_price"
-            android:text="_5"
+            android:text="Rs.0"
             android:textStyle="bold"
             android:id="@+id/total_price"
             android:textSize="23sp"
@@ -94,20 +94,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/substract_icon" />
+                app:srcCompat="@drawable/substract_icon"
+                android:outlineAmbientShadowColor="@color/purple_700"/>
            <TextView
                android:id="@+id/product_qty"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="5"
                android:textSize="22sp"
+               android:textStyle="bold"
                />
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/plus_icon" />
+                app:srcCompat="@drawable/plus_icon"
+                android:outlineAmbientShadowColor="@color/purple_700"/>
 
             <Button
                 android:id="@+id/btnDelete"
