@@ -72,7 +72,7 @@
         android:gravity="center" />
 
     <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btnUpdateFeedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"

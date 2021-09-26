@@ -80,7 +80,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="35dp"
         android:numStars="5"
-        android:progressBackgroundTint="#FF9800"
+        android:progressBackgroundTint="#B4A2D3"
         />
 
     <Button
@@ -90,29 +90,15 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
-        android:backgroundTint="#673AB7"
+        android:backgroundTint="#000000"
         android:gravity="center"
         android:onClick="Post"
         android:text="POST"
         android:textAllCaps="false"
-        android:textColor="#050005"
+        android:textColor="#FAF9FA"
         android:textSize="21dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnShow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:backgroundTint="#673AB7"
-        android:gravity="center"
-        android:onClick="ShowFeedback"
-        android:text="SHOW"
-        android:textAllCaps="false"
-        android:textColor="#050005"
-        android:textSize="21dp"
-        android:textStyle="bold" />
+
 
 </LinearLayout>

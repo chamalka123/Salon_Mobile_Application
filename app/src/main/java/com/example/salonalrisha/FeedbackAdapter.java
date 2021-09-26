@@ -1,12 +1,15 @@
 package com.example.salonalrisha;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +18,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,7 +50,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull FeedbackAdapter.feedbackViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull FeedbackAdapter.feedbackViewHolder holder, final int position) {
             Feedback feedback = list.get(position);
             holder.name.setText(feedback.getName());
             holder.email.setText(feedback.getEmail());
@@ -59,7 +68,70 @@ import de.hdodenhof.circleimageview.CircleImageView;
                             .setExpanded(true, 1200)
                             .create();
 
-                    dialogPlus.show();
+                    //dialogPlus.show();
+                    View view = dialogPlus.getHolderView();
+
+                    EditText name = view.findViewById(R.id.Review_Person_name);
+                    EditText email = view.findViewById(R.id.feedback_email);
+                    EditText review = view.findViewById(R.id.feedback_review);
+
+                    Button btnUpdateFeedback = view.findViewById(R.id.btnUpdateFeedback);
+
+                   Feedback feedback = list.get(position);
+                   name.setText(feedback.getName());
+                   email.setText(feedback.getEmail());
+                   review.setText(feedback.getComment());
+
+                   dialogPlus.show();
+
+                   btnUpdateFeedback.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           Map<String, Object> map = new HashMap<>();
+                           map.put("name", name.getText().toString());
+                           map.put("email", email.getText().toString());
+                           map.put("comment", review.getText().toString());
+
+                           FirebaseDatabase.getInstance().getReference().child("Feedback")
+                                   .child(list.get(position).getEmail()).updateChildren(map)
+                                   .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                       @Override
+                                       public void onSuccess(Void unused) {
+                                           Toast.makeText(holder.name.getContext(), "Updated Successfully", Toast.LENGTH_LONG).show();
+                                           dialogPlus.dismiss();
+                                       }
+                                   })
+                                   .addOnFailureListener(new OnFailureListener() {
+                                       @Override
+                                       public void onFailure(Exception e) {
+                                           Toast.makeText(holder.name.getContext(), "Error with updating", Toast.LENGTH_SHORT).show();
+                                           dialogPlus.dismiss();
+                                       }
+                                   });
+                       }
+                   });
+                }
+            });
+            holder.btnDeleteFeedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(holder.name.getContext());
+                    builder.setTitle("Are you sure?");
+                    builder.setMessage("Deleted Feedback can't be undo");
+                    builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            FirebaseDatabase.getInstance().getReference().child("Feedback")
+                                    .child(list.get(position).getEmail()).removeValue();
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(holder.name.getContext(), "Canceled", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.show();
                 }
             });
         }
@@ -73,15 +145,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
             CircleImageView image;
             TextView name, email, review;
             RelativeLayout parentLayout;
-            Button btnEditFeedback;
+            Button btnEditFeedback, btnDeleteFeedback;
 
             public feedbackViewHolder(@NonNull View itemView) {
                 super(itemView);
-                name = itemView.findViewById(R.id.image_name);
-                email = itemView.findViewById(R.id.feedback_email);
-                review = itemView.findViewById(R.id.feedback_review);
-                image = itemView.findViewById(R.id.image_feedback);
-                btnEditFeedback = itemView.findViewById(R.id.btnEditFeedback);
+                name = (TextView) itemView.findViewById(R.id.image_name);
+                email = (TextView) itemView.findViewById(R.id.feedback_email);
+                review = (TextView) itemView.findViewById(R.id.feedback_review);
+                image = (CircleImageView) itemView.findViewById(R.id.image_feedback);
+                btnEditFeedback = (Button) itemView.findViewById(R.id.btnEditFeedback);
+                btnDeleteFeedback = (Button) itemView.findViewById(R.id.btnDeleteFeedback);
                 parentLayout = itemView.findViewById(R.id.parent_layout);
             }
         }
