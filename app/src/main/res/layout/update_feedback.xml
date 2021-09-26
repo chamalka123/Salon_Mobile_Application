@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
-    android:onClick="Post"
+    android:background="#F3B5FD"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center"
-        android:text="Add Review"
-        android:textColor="#070505"
+        android:text="Update Feedback"
+        android:textColor="#060007"
         android:textSize="25dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Enter Your Name"
+        android:text="Name"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -36,15 +36,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Enter Your Email"
+        android:text="Email"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/feedback_email"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="10dp"
@@ -55,15 +55,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Write a Review"
+        android:text="Review"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/review_message"
+        android:id="@+id/feedback_review"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="10dp"
@@ -71,48 +71,17 @@
         android:background="@drawable/rounded"
         android:gravity="center" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="35dp"
-        android:numStars="5"
-        android:progressBackgroundTint="#FF9800"
-        />
-
     <Button
-        android:id="@+id/btnPost"
+        android:id="@+id/btnEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
-        android:backgroundTint="#673AB7"
+        android:backgroundTint="#074003"
         android:gravity="center"
-        android:onClick="Post"
-        android:text="POST"
+        android:text="UPDATE"
         android:textAllCaps="false"
-        android:textColor="#050005"
-        android:textSize="21dp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnShow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:backgroundTint="#673AB7"
-        android:gravity="center"
-        android:onClick="ShowFeedback"
-        android:text="SHOW"
-        android:textAllCaps="false"
-        android:textColor="#050005"
-        android:textSize="21dp"
-        android:textStyle="bold" />
+        android:textSize="21dp" />
 
 </LinearLayout>

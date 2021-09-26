@@ -4,4 +4,5 @@
     <string name="product_price">Product Price</string>
     <string name="product_brand">Product Brand</string>
     <string name="product_category">Product Category</string>
+    <string name="title">Reviews</string>
 </resources>
