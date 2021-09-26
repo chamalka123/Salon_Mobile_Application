@@ -195,6 +195,4 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
         }
     }
 
-
-
 }
