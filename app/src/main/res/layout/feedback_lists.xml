@@ -8,13 +8,18 @@
     app:cardCornerRadius="6dp"
     android:elevation="6dp"
     app:cardUseCompatPadding="true">
+
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_feedback"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/image_feedback"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="27dp"
         android:src="@mipmap/ic_launcher_round"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="2dp"/>
+        app:civ_border_color="@color/purple_500"
+        app:civ_border_width="1dp" />
 
     <TextView
         android:id="@+id/image_name"
@@ -24,7 +29,7 @@
         android:layout_toRightOf="@+id/image_feedback"
         android:text="Name"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
@@ -36,18 +41,27 @@
         android:layout_toRightOf="@+id/image_feedback"
         android:text="Email"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/image_feedback"
+        android:numStars="5"
+        android:layout_below="@+id/feedback_email"/>
 
     <TextView
         android:id="@+id/feedback_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/feedback_email"
+        android:layout_below="@+id/ratingBar"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/image_feedback"
         android:text="Review"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

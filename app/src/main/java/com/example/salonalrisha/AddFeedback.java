@@ -23,7 +23,7 @@ public class AddFeedback extends AppCompatActivity {
     //register components
     EditText txtName, txtEmail, txtReview;
     Button btnPost;
-    //RatingBar ratingBar;
+    RatingBar ratingBar;
     Feedback obFeedback;
     DatabaseReference db;
 
@@ -32,7 +32,7 @@ public class AddFeedback extends AppCompatActivity {
         txtName.setText("");
         txtEmail.setText("");
         txtReview.setText("");
-        //ratingBar.setNumStars(0);
+        ratingBar.setRating((float) 0.0);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class AddFeedback extends AppCompatActivity {
         txtName = (EditText) findViewById(R.id.Review_Person_name);
         txtEmail = (EditText) findViewById(R.id.email);
         txtReview = (EditText) findViewById(R.id.review_message);
-        //ratingBar = findViewById(R.id.ratingBar);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         btnPost = (Button) findViewById(R.id.btnPost);
 
@@ -73,7 +73,7 @@ public class AddFeedback extends AppCompatActivity {
                 obFeedback.setName(txtName.getText().toString().trim());
                 obFeedback.setEmail(txtEmail.getText().toString().trim());
                 obFeedback.setComment(txtReview.getText().toString().trim());
-                //obFeedback.hashCode(ratingBar.getNumStars());
+                obFeedback.setRating(ratingBar.getRating());
                 db.push().setValue(obFeedback);
 
                 Toast.makeText(getApplicationContext(), "Your Review Successfully Recorded", Toast.LENGTH_LONG).show();
