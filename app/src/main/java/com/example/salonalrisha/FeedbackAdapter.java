@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class FeedbackAdapter extends FirebaseRecyclerAdapter<Feedback, FeedbackA
         holder.name.setText(model.getName());
         holder.email.setText(model.getEmail());
         holder.review.setText(model.getComment());
+        holder.rating.setRating(model.getRating());
         Glide.with(holder.image.getContext())
                 .load(model.getUrl())
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
@@ -134,6 +136,7 @@ public class FeedbackAdapter extends FirebaseRecyclerAdapter<Feedback, FeedbackA
     class feedbackViewHolder extends RecyclerView.ViewHolder{
         CircleImageView image;
         TextView name, email, review;
+        RatingBar rating;
 
         Button btnEditFeedback, btnDeleteFeedback;
         public feedbackViewHolder(@NonNull View itemView) {
@@ -142,6 +145,7 @@ public class FeedbackAdapter extends FirebaseRecyclerAdapter<Feedback, FeedbackA
             email = (TextView) itemView.findViewById(R.id.feedback_email);
             review = (TextView) itemView.findViewById(R.id.feedback_review);
             image = (CircleImageView) itemView.findViewById(R.id.image_feedback);
+            rating = (RatingBar) itemView.findViewById(R.id.ratingBar);
             btnEditFeedback = (Button) itemView.findViewById(R.id.btnEditFeedback);
             btnDeleteFeedback = (Button) itemView.findViewById(R.id.btnDeleteFeedback);
         }
