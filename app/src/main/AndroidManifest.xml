@@ -18,6 +18,7 @@
         <activity android:name=".Services_lists" />
         <activity android:name=".AddProduct" />
         <activity android:name=".Product_lists" />
+        <activity android:name=".SingleProduct"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

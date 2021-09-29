@@ -15,7 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Product_lists extends AppCompatActivity {
+public class Product_lists extends AppCompatActivity  {
 
     RecyclerView recyclerView;
     ProductAdapter productAdapter;
@@ -91,4 +91,6 @@ return false;
         recyclerView.setAdapter(productAdapter);
 
     }
+
+
 }
