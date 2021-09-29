@@ -37,40 +37,19 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
      *
      * @param options
      */
+
+
     public ProductAdapter(@NonNull  FirebaseRecyclerOptions<Products> options) {
         super(options);
     }
-
-    @Override
+@Override
     protected void onBindViewHolder(@NonNull ProductAdapter.myViewHolder holder, final int position, @NonNull  Products model) {
 
         holder.name.setText(model.getName());
         holder.price.setText(model.getPrice() + " LKR");
         holder.brand.setText(model.getBrand());
         holder.category.setText(model.getCategory());
-        holder.qty.setText("" + model.getQty());
        //int total= ((Integer.valueOf(model.getPrice())))*Integer.valueOf(model.getQty());
-       //holder.total.setText(model.getTotal());
-
-       //if plus button is pressed
-        holder.imageView9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                model.setQty(model.getQty() + 1);
-                notifyDataSetChanged();
-            }
-        });
-        //if substract button is pressed
-       holder.imageView8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               if(model.getQty() > 1){
-                    //if greater than to 1
-                    model.setQty(model.getQty() - 1);
-                    notifyDataSetChanged();
-               }
-            }
-        });
 
         Glide.with(holder.image.getContext())
                 .load(model.getImage())
@@ -78,6 +57,50 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
                 .circleCrop()
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.image);
+
+        holder.btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.image.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.single_product))
+                        .setExpanded(true,1200)
+                        .create();
+                View view=dialogPlus.getHolderView();
+
+                TextView name = view.findViewById(R.id.product_name);
+                TextView price = view.findViewById(R.id.product_price);
+                TextView brand = view.findViewById(R.id.product_brand);
+                TextView qty = view.findViewById(R.id.product_qty);
+
+                ImageView imageView8=view.findViewById(R.id.imageView8);
+                ImageView imageView9=view.findViewById(R.id.imageView9);
+                name.setText(model.getName());
+                price.setText("Price : " +model.getPrice()+ "LKR");
+                brand.setText("Brand : "+model.getBrand());
+                qty.setText(""+model.getQty());
+
+                //  image.setText(model.getImage());
+                dialogPlus.show();
+                imageView9.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        model.setQty(model.getQty() + 1);
+                        notifyDataSetChanged();
+                    }
+                });
+                dialogPlus.show();
+                imageView8.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(model.getQty() > 1){
+                            //if greater than to 1
+                            model.setQty(model.getQty() - 1);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+        });
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,15 +115,13 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
                 EditText price = view.findViewById(R.id.product_price);
                 EditText brand = view.findViewById(R.id.product_brand);
                 EditText category = view.findViewById(R.id.product_category);
-                //EditText image = view.findViewById(R.id.img1);
 
                 Button btnEdit = view.findViewById(R.id.btnEdit);
-
                 name.setText(model.getName());
                 price.setText(model.getPrice());
                 brand.setText(model.getBrand());
                 category.setText(model.getCategory());
-              //  image.setText(model.getImage());
+
 
                 dialogPlus.show();
                 btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -170,14 +191,11 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView9;
-        ImageView imageView8;
         CircleImageView image;
+        CircleImageView image_;
         TextView name,price,brand,category;
         TextView  qty, total;
-
-
-        Button btnEdit,btnDelete;
+        Button btnEdit,btnDelete, btnView;
 
         public myViewHolder(View itemView) {
             super(itemView);
@@ -190,8 +208,8 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
         total=(TextView)itemView.findViewById(R.id.total_price);
         btnEdit=(Button)itemView.findViewById(R.id.btnEdit);
         btnDelete=(Button)itemView.findViewById(R.id.btnDelete);
-        imageView8=(ImageView)itemView.findViewById(R.id.imageView8);
-        imageView9=(ImageView)itemView.findViewById(R.id.imageView9);
+        btnView=(Button)itemView.findViewById(R.id.btnView);
+
         }
     }
 
