@@ -3,6 +3,7 @@ package com.example.salonalrisha;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddFeedback extends AppCompatActivity {
 
+    //register components
     EditText txtName, txtEmail, txtReview;
     Button btnPost;
     //RatingBar ratingBar;
@@ -39,14 +41,22 @@ public class AddFeedback extends AppCompatActivity {
         setContentView(R.layout.activity_add_feedback);
 
         //binding
-        txtName = findViewById(R.id.Review_Person_name);
-        txtEmail = findViewById(R.id.email);
-        txtReview = findViewById(R.id.review_message);
+        txtName = (EditText) findViewById(R.id.Review_Person_name);
+        txtEmail = (EditText) findViewById(R.id.email);
+        txtReview = (EditText) findViewById(R.id.review_message);
         //ratingBar = findViewById(R.id.ratingBar);
 
-        btnPost = findViewById(R.id.btnPost);
+        btnPost = (Button) findViewById(R.id.btnPost);
 
         obFeedback = new Feedback();
+
+        final Button avgCalc = (Button)findViewById(R.id.CalculateAverageFeedback);
+        avgCalc.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AverageCalcRating.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public  void Post(View view){
@@ -73,26 +83,5 @@ public class AddFeedback extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Number Format Exception",Toast.LENGTH_LONG).show();
         }
 
-    }
-
-    public void ShowFeedback(View view) {
-        DatabaseReference readDB = FirebaseDatabase.getInstance().getReference().child("Feedbacks").child("-MkHK2m3JhDo3sp1wlLA");
-        readDB.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.hasChildren()){
-                    txtName.setText(snapshot.child("name").getValue().toString());
-                    txtEmail.setText(snapshot.child("email").getValue().toString());
-                    txtReview.setText(snapshot.child("comment").getValue().toString());
-                }else{
-                    Toast.makeText(getApplicationContext(), "No values to display", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 }

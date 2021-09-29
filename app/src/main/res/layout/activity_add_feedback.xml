@@ -98,6 +98,21 @@
         android:textColor="#FAF9FA"
         android:textSize="21dp"
         android:textStyle="bold" />
+    <Button
+        android:id="@+id/CalculateAverageFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:backgroundTint="#000000"
+        android:gravity="center"
+        android:onClick="Post"
+        android:text="CALCULATE AVERAGE"
+        android:textAllCaps="false"
+        android:textColor="#FAF9FA"
+        android:textSize="21dp"
+        android:textStyle="bold" />
 
 
 

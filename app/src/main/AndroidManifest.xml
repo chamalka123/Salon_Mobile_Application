@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SalonAlrisha">
-        <activity android:name=".Feedbacks"></activity>
+        <activity android:name=".AverageCalcRating"></activity>
+        <activity android:name=".Feedbacks" />
         <activity android:name=".AddFeedback" />
         <activity android:name=".AddService" />
         <activity android:name=".Services_lists" />
