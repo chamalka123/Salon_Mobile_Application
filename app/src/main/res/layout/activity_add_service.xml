@@ -12,7 +12,8 @@
 
         android:text="Add New Service"
         android:textColor="#160140"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="match_parent"
@@ -32,7 +33,10 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:textColor="#010002" />
+        android:textColor="#010002"
+        android:inputType="textCapSentences"
+        android:maxLength="20"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
@@ -53,7 +57,8 @@
         android:background="@drawable/rounded"
         android:gravity="center"
         android:inputType="number"
-        android:textColor="#010002"/>
+        android:textColor="#010002"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
@@ -74,7 +79,8 @@
         android:background="@drawable/rounded"
         android:gravity="center"
         android:inputType="number"
-        android:textColor="#010002"/>
+        android:textColor="#010002"
+        android:textStyle="bold"/>
 
 
     <TextView
@@ -95,7 +101,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:textColor="#010002"/>
+        android:textColor="#010002"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnAdd"
