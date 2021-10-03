@@ -3,7 +3,6 @@ package com.example.salonalrisha;
 public class Products {
     String name, brand, category ,image;
    int qty;
-   int total;
    String price;
 
     Products(){}
@@ -17,20 +16,10 @@ public class Products {
 
     }
 
-    public Products(int qty, int total) {
+    public Products(int qty ) {
         this.qty = qty;
-        this.total=total;
-
     }
 
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
 
     public String getName() {
         return name;
