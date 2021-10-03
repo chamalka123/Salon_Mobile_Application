@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AverageCalcRating extends AppCompatActivity {
     private EditText total;
     private EditText count;
     private Button calculate;
     private TextView average;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,14 @@ public class AverageCalcRating extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float totalStars = Float.parseFloat(total.getText().toString());
-                float userRates = Float.parseFloat(count.getText().toString());
-                float averageRate = (userRates / totalStars)*100;
-                average.setText(String.valueOf(averageRate));
+                calcAverageRate();
             }
         });
+    }
+    private void calcAverageRate(){
+        float totalStars = Float.parseFloat(total.getText().toString());
+        float userRates = Float.parseFloat(count.getText().toString());
+        float averageRate = (userRates / totalStars)*100;
+        average.setText(String.valueOf(averageRate));
     }
 }

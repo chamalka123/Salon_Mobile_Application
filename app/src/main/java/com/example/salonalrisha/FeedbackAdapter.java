@@ -48,7 +48,7 @@ public class FeedbackAdapter extends FirebaseRecyclerAdapter<Feedback, FeedbackA
                 .load(model.getUrl())
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
-                .error(R.drawable.common_google_signin_btn_icon_dark_normal)
+                .error(R.drawable.ic_baseline_account_circle_24)
                 .into(holder.image);
 
         holder.btnEditFeedback.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +56,7 @@ public class FeedbackAdapter extends FirebaseRecyclerAdapter<Feedback, FeedbackA
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.image.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_feedback))
-                        .setExpanded(true, 1200)
+                        .setExpanded(true, 650)
                         .create();
 
                 //dialogPlus.show();

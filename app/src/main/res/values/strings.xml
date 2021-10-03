@@ -8,4 +8,6 @@
     <string name="averageRate">User Ratings</string>
     <string name="Total">Total Rating</string>
     <string name="avg">%</string>
+    <string name="updateFeedback">Update Your Review</string>
+    <string name="addReview">Add Your Review</string>
 </resources>

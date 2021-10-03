@@ -2,17 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3B5FD"
+    android:background="@drawable/gradient2"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        android:text="Update Feedback"
+        android:text="@string/updateFeedback"
         android:textColor="#060007"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
